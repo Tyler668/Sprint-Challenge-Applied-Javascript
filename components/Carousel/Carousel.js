@@ -1,3 +1,4 @@
+//========================================================================================================================
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
     1. You will need to write a function that creates the carousel component, you will find the HTML below.
     2. You will need to grab a reference to all of the images  ------> //No// 
@@ -18,6 +19,9 @@
   </div>
 */
 
+//========================================================================================================================
+//MAKING THE CAROUSEL ===
+//Capture a place for the carousel ===
 const carouselContainer = document.querySelector('.carousel-container');
 
 function makeDatCarousel(imgArray) {
@@ -46,14 +50,14 @@ function makeDatCarousel(imgArray) {
   let count = 0;
   currentImg.src = imgArray[count]
 
-
-  // Left right logic that replaces the src of the current display:block image with the corresponding image in the array ===
+  // Left / right logic that replaces the src of the current display:block image with the corresponding image in the array ===
   leftButton.addEventListener('click', e => {
     count++;
     if(count === imgArray.length){count = 0};
     currentImg.src = imgArray[count];
   });
 
+  // Right
   rightButton.addEventListener('click', e => {
     if(count === 0){count = imgArray.length};
     count--;
@@ -62,15 +66,20 @@ function makeDatCarousel(imgArray) {
 
   return datCarousel;
 }
-
-
+//========================================================================================================================
+// Array of images for carousel, though can take any ===
 const images = [
   "./assets/carousel/mountains.jpeg",
   "./assets/carousel/computer.jpeg",
   "./assets/carousel/trees.jpeg",
   "./assets/carousel/turntable.jpeg"
 ];
+//========================================================================================================================
+
+
+// Slap it on the carousel div ===
 carouselContainer.appendChild(makeDatCarousel(images));
 
+//========================================================================================================================
 
 
