@@ -1,5 +1,3 @@
-import { create } from "domain";
-
 // STEP 3: Create Article cards.
 // -----------------------
 // Send an HTTP GET request to the following address: https://lambda-times-backend.herokuapp.com/articles
@@ -52,15 +50,12 @@ function createCard(cardObject) {
     img.src = cardObject.authorPhoto;
     authorName.textContent = `By ${cardObject.authorName}`;
 
-
     return baseCard;
-
 }
 
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(response => {
-        console.log(response);
         //Was breaking unless I did these individually and 
         // I'm on a time constraint so blegh 
 
@@ -86,4 +81,3 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     });
 
 
-//REMEMBER TO UNCOMMENT TOP THING
