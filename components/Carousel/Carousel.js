@@ -21,6 +21,7 @@
 
 //========================================================================================================================
 //MAKING THE CAROUSEL ===
+
 //Capture a place for the carousel ===
 const carouselContainer = document.querySelector('.carousel-container');
 
@@ -43,10 +44,10 @@ function makeDatCarousel(imgArray) {
 
   // Make current slide visible ===
   currentImg.style.display = 'block';
-
   leftButton.textContent = '<';
   rightButton.textContent = '>';
 
+  // Initiating count var for carousel ===
   let count = 0;
   currentImg.src = imgArray[count]
 
@@ -55,6 +56,10 @@ function makeDatCarousel(imgArray) {
     count++;
     if(count === imgArray.length){count = 0};
     currentImg.src = imgArray[count];
+
+    // TweenMax.from(currentImg, 1, {opacity:1});
+    // TweenMax.to(currentImg,1, {opacity:0});            // Sad attempts to fade in animations 
+
   });
 
   // Right
@@ -62,6 +67,10 @@ function makeDatCarousel(imgArray) {
     if(count === 0){count = imgArray.length};
     count--;
     currentImg.src = imgArray[count];
+    
+    // TweenMax.from(currentImg, 1, {opacity:1});
+    // TweenMax.to(currentImg,1, {opacity:0});             // Sad attempts to fade in animations 
+
   });
 
   return datCarousel;
@@ -75,11 +84,8 @@ const images = [
   "./assets/carousel/turntable.jpeg"
 ];
 //========================================================================================================================
-
-
 // Slap it on the carousel div ===
 carouselContainer.appendChild(makeDatCarousel(images));
-
 //========================================================================================================================
 
 
